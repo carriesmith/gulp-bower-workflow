@@ -39,3 +39,10 @@ gulp.task('scripts', function(){
   .pipe(gulp.dest('public/dist'));
 
 });
+
+gulp.task('watch', function(){
+
+  // watch the less file and run the CSS task
+  gulp.watch('public/assets/css/style.less', ['css']);
+
+});
