@@ -3,6 +3,6 @@ angular.module('mainCtrl', [])
 
     var vm = this;
 
-    vm.message = 'this is my message!';
+    vm.message = 'Update the message!';
 
   });

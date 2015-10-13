@@ -6,6 +6,7 @@ var rename = require('gulp-rename');
 var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var nodemon = require('gulp-nodemon');
 
 // define a task compiling LESS css and minify
 gulp.task('css', function(){
@@ -46,3 +47,19 @@ gulp.task('watch', function(){
   gulp.watch('public/assets/css/style.less', ['css']);
 
 });
+
+gulp.task('nodemon', function(){
+
+  nodemon({
+    script: 'server.js',
+    ext: 'js less html'
+    })
+      .on('start', ['watch'])
+      .on('change', ['watch'])
+      .on('restart', function(){
+        console.log('Restart.');
+        });
+
+});
+
+gulp.task('default', ['nodemon']);
